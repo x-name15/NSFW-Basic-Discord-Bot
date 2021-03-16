@@ -1,0 +1,4 @@
+os
+discord.py
+random
+requests
