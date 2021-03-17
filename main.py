@@ -24,6 +24,10 @@ async def on_ready():
     print(bot.user.name)
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(gamePlaying))
 
+@bot.event
+async def on_command_error(ctx, error):
+    await ctx.send(embed=discord.Embed(title='NSFW COMMAND',description='This chat doesnt allow NSFW ._ .'))
+
 @bot.command()
 async def help(ctx):
     embed = discord.Embed(title='All Commands', description=None)
@@ -46,6 +50,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
+@commands.is_nsfw()
 async def anal(ctx):
     r = requests.get("https://nekos.life/api/v2/img/anal")
     res = r.json()
@@ -54,6 +59,7 @@ async def anal(ctx):
     await ctx.send(embed=em) 
 
 @bot.command()
+@commands.is_nsfw()
 async def erofeet(ctx): 
     r = requests.get("https://nekos.life/api/v2/img/erofeet")
     res = r.json()
@@ -62,6 +68,7 @@ async def erofeet(ctx):
     await ctx.send(embed=em)
 
 @bot.command()
+@commands.is_nsfw()
 async def feet(ctx): 
     r = requests.get("https://nekos.life/api/v2/img/feetg")
     res = r.json()
@@ -70,6 +77,7 @@ async def feet(ctx):
     await ctx.send(embed=em)
 
 @bot.command()
+@commands.is_nsfw()
 async def hentai(ctx):
     r = requests.get("https://nekos.life/api/v2/img/Random_hentai_gif")
     res = r.json()
@@ -78,6 +86,7 @@ async def hentai(ctx):
     await ctx.send(embed=em) 
 
 @bot.command()
+@commands.is_nsfw()
 async def boobs(ctx): 
     r = requests.get("https://nekos.life/api/v2/img/boobs")
     res = r.json()
@@ -86,6 +95,7 @@ async def boobs(ctx):
     await ctx.send(embed=em)
 
 @bot.command()
+@commands.is_nsfw()
 async def tits(ctx): 
     r = requests.get("https://nekos.life/api/v2/img/tits")
     res = r.json()
@@ -94,6 +104,7 @@ async def tits(ctx):
     await ctx.send(embed=em)
 
 @bot.command()
+@commands.is_nsfw()
 async def blowjob(ctx): 
     r = requests.get("https://nekos.life/api/v2/img/blowjob")
     res = r.json()
@@ -102,6 +113,7 @@ async def blowjob(ctx):
     await ctx.send(embed=em)
 
 @bot.command()
+@commands.is_nsfw()
 async def lewdneko(ctx):
     r = requests.get("https://nekos.life/api/v2/img/nsfw_neko_gif")
     res = r.json()
@@ -110,6 +122,7 @@ async def lewdneko(ctx):
     await ctx.send(embed=em)   
 
 @bot.command()
+@commands.is_nsfw()
 async def lesbian(ctx): 
     r = requests.get("https://nekos.life/api/v2/img/les")
     res = r.json()
@@ -118,6 +131,7 @@ async def lesbian(ctx):
     await ctx.send(embed=em)
 
 @bot.command()
+@commands.is_nsfw()
 async def traps(ctx):
   r = requests.get("https://nekos.life/api/v2/img/trap")
   res = r.json()
@@ -126,6 +140,7 @@ async def traps(ctx):
   await ctx.send(embed=em)
 
 @bot.command()
+@commands.is_nsfw()
 async def futanari(ctx):
   r = requests.get("https://nekos.life/api/v2/img/futanari")
   res = r.json()
@@ -134,6 +149,7 @@ async def futanari(ctx):
   await ctx.send(embed=em)
 
 @bot.command()
+@commands.is_nsfw()
 async def femdom(ctx):
   r = requests.get("https://nekos.life/api/v2/img/femdom")
   res = r.json()
@@ -142,7 +158,8 @@ async def femdom(ctx):
   await ctx.send(embed=em)
 
 @bot.command()
-async def pussy(ctx):
+@commands.is_nsfw()
+async def pussy(ctx): 
   r = requests.get("https://nekos.life/api/v2/img/pussy")
   res = r.json()
   em = discord.Embed()
